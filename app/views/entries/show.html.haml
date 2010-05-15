@@ -7,6 +7,12 @@
   %strong Year:
   = @entry.year
 %p
+  %strong Genre:
+  %ul
+    -for genre in @entry.genres
+      %li
+        =genre.name.humanize
+%p
   %strong Media Typ:
   -if @entry.media_typ
     Movie
@@ -21,7 +27,7 @@
     %ul
       -for link in @entry.links
         %li
-          =link_to link.name, link.url
+          =link_to link.name, link.url, {:rel => "external", :target => "_blank"}
 %p
   %strong Nfo:
   = @entry.nfo

@@ -2,15 +2,15 @@ class GenresController < ApplicationController
   def index
     @genres = Genre.all
   end
-  
+
   def show
     @genre = Genre.find(params[:id])
   end
-  
+
   def new
     @genre = Genre.new
   end
-  
+
   def create
     @genre = Genre.new(params[:genre])
     if @genre.save
@@ -20,11 +20,11 @@ class GenresController < ApplicationController
       render :action => 'new'
     end
   end
-  
+
   def edit
     @genre = Genre.find(params[:id])
   end
-  
+
   def update
     @genre = Genre.find(params[:id])
     if @genre.update_attributes(params[:genre])
@@ -34,7 +34,7 @@ class GenresController < ApplicationController
       render :action => 'edit'
     end
   end
-  
+
   def destroy
     @genre = Genre.find(params[:id])
     @genre.destroy
@@ -42,3 +42,4 @@ class GenresController < ApplicationController
     redirect_to genres_url
   end
 end
+

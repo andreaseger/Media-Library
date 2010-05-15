@@ -6,8 +6,10 @@ gem 'rails', '3.0.0.beta3'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'sqlite3-ruby', :require => 'sqlite3'
-gem 'nifty-generators'
+#gem 'nifty-generators'
 gem 'haml'
+
+#gem 'ruby-debug19', :require => "ruby-debug"
 
 # Use unicorn as the web server
 #gem 'unicorn'

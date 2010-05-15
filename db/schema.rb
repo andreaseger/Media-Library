@@ -21,10 +21,10 @@ ActiveRecord::Schema.define(:version => 20100514164800) do
   create_table "entries", :force => true do |t|
     t.string   "title"
     t.integer  "year"
-    t.string   "imdb"
     t.text     "nfo"
-    t.boolean  "media_typ"
+    t.string   "media_typ"
     t.string   "quality"
+    t.string   "genre"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

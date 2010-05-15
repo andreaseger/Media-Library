@@ -2,15 +2,15 @@ class EntriesController < ApplicationController
   def index
     @entries = Entry.all
   end
-  
+
   def show
     @entry = Entry.find(params[:id])
   end
-  
+
   def new
     @entry = Entry.new
   end
-  
+
   def create
     @entry = Entry.new(params[:entry])
     if @entry.save
@@ -20,12 +20,13 @@ class EntriesController < ApplicationController
       render :action => 'new'
     end
   end
-  
+
   def edit
     @entry = Entry.find(params[:id])
   end
-  
+
   def update
+    params[:entry][:genre_ids] ||= []
     @entry = Entry.find(params[:id])
     if @entry.update_attributes(params[:entry])
       flash[:notice] = "Successfully updated entry."
@@ -34,7 +35,7 @@ class EntriesController < ApplicationController
       render :action => 'edit'
     end
   end
-  
+
   def destroy
     @entry = Entry.find(params[:id])
     @entry.destroy
@@ -42,3 +43,4 @@ class EntriesController < ApplicationController
     redirect_to entries_url
   end
 end
+

@@ -6,7 +6,14 @@ class UrlFormatValidator < ActiveModel::EachValidator
   URL_REGEX = /^#{protocol}#{sub}#{domain}*/i
 
   def validate_each(record, attribute, value)
-    record.errors[attribute] << (options[:message] || :invalid) unless value =~ URL_REGEX
+    result = false
+    if (value =~ URL_REGEX) == 0
+      result = true
+    elsif ("http://#{value}" =~URL_REGEX) == 0
+      result = true
+      record[:url] = "http://#{value}"
+    end
+    record.errors[attribute] << (options[:message] || :invalid) unless result
   end
 end
 
