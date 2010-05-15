@@ -9,25 +9,25 @@
     %br
     = f.text_field :year
   %p
-    = f.label :imdb
-    %br
-    = f.text_field :imdb
-  %p
-    = f.label :nfo
-    %br
-    = f.text_area :nfo
-  %p
     = f.label :media_typ
     %br
     = f.radio_button :media_typ, true
     Movie
     = f.radio_button :media_typ, false
     TV Show
-    =# f.check_box :media_typ
   %p
     = f.label :quality
     %br
-    = form.collection_select :quality, ENTRY::QUALITIES, :to_s, :humanize
+    = f.collection_select :quality, Entry::QUALITIES, :to_s, :humanize
+
+  - f.fields_for :links do |builder|
+    = render 'link_fields', :f => builder
+  %p
+    = link_to_add_fields "Add Link", f, :links
+  %p
+    = f.label :nfo
+    %br
+    = f.text_area :nfo, :rows => 5
   %p
     = f.submit
 

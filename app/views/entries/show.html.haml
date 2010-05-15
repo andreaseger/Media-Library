@@ -7,18 +7,20 @@
   %strong Year:
   = @entry.year
 %p
-  %strong Imdb:
-  = @entry.imdb
-%p
-  %strong Nfo:
-  = @entry.nfo
-%p
   %strong Media Typ:
   = @entry.media_typ
 %p
   %strong Quality:
   = @entry.quality
-
+%p
+  %strong Links:
+  %ul
+    -for link in @entry.links
+      %li
+        =link_to link.name, link.url
+%p
+  %strong Nfo:
+  = @entry.nfo
 %p
   = link_to "Edit", edit_entry_path(@entry)
   |

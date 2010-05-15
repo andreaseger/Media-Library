@@ -3,9 +3,8 @@ class CreateEntries < ActiveRecord::Migration
     create_table :entries do |t|
       t.string :title
       t.integer :year
-      t.string :imdb
       t.text :nfo
-      t.boolean :media_typ
+      t.boolean :media_typ    # true->Movie | false->TV-Show
       t.string :quality
       t.timestamps
     end
