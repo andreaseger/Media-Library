@@ -1,0 +1,17 @@
+one:
+  title: MyString
+  year: 1
+  imdb: MyString
+  nfo: MyText
+  media_typ: false
+  quality: 1
+  genre_id: 1
+
+two:
+  title: MyString
+  year: 1
+  imdb: MyString
+  nfo: MyText
+  media_typ: false
+  quality: 1
+  genre_id: 1

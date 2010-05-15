@@ -1,0 +1,13 @@
+- title "Genres"
+
+%table
+  %tr
+    %th Name
+  - for genre in @genres
+    %tr
+      %td= genre.name
+      %td= link_to 'Show', genre
+      %td= link_to 'Edit', edit_genre_path(genre)
+      %td= link_to 'Destroy', genre, :confirm => 'Are you sure?', :method => :delete
+
+%p= link_to "New Genre", new_genre_path

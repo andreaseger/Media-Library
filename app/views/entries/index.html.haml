@@ -1,0 +1,24 @@
+- title "Entries"
+
+%table
+  %tr
+    %th Title
+    %th Year
+    %th Imdb
+    %th Nfo
+    %th Media typ
+    %th Quality
+  - for entry in @entries
+    %tr
+      %td= entry.title
+      %td= entry.year
+      %td= entry.imdb
+      %td= entry.nfo
+      %td= entry.media_typ
+      %td= entry.quality
+      %td= link_to 'Show', entry
+      %td= link_to 'Edit', edit_entry_path(entry)
+      %td= link_to 'Destroy', entry, :confirm => 'Are you sure?', :method => :delete
+
+%p= link_to "New Entry", new_entry_path
+

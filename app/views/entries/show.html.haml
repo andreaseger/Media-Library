@@ -1,0 +1,28 @@
+- title "Entry"
+
+%p
+  %strong Title:
+  = @entry.title
+%p
+  %strong Year:
+  = @entry.year
+%p
+  %strong Imdb:
+  = @entry.imdb
+%p
+  %strong Nfo:
+  = @entry.nfo
+%p
+  %strong Media Typ:
+  = @entry.media_typ
+%p
+  %strong Quality:
+  = @entry.quality
+
+%p
+  = link_to "Edit", edit_entry_path(@entry)
+  |
+  = link_to "Destroy", @entry, :confirm => 'Are you sure?', :method => :delete
+  |
+  = link_to "View All", entries_path
+

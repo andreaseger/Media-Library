@@ -1,0 +1,18 @@
+- title "Link"
+
+%p
+  %strong Entry:
+  = @link.entry_id
+%p
+  %strong Name:
+  = @link.name
+%p
+  %strong Url:
+  = @link.url
+
+%p
+  = link_to "Edit", edit_link_path(@link)
+  |
+  = link_to "Destroy", @link, :confirm => 'Are you sure?', :method => :delete
+  |
+  = link_to "View All", links_path
