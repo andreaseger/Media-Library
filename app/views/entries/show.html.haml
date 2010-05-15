@@ -8,16 +8,20 @@
   = @entry.year
 %p
   %strong Media Typ:
-  = @entry.media_typ
+  -if @entry.media_typ
+    Movie
+  -else
+    TV Show
 %p
   %strong Quality:
   = @entry.quality
-%p
-  %strong Links:
-  %ul
-    -for link in @entry.links
-      %li
-        =link_to link.name, link.url
+-if not @entry.links.empty?
+  %p
+    %strong Links:
+    %ul
+      -for link in @entry.links
+        %li
+          =link_to link.name, link.url
 %p
   %strong Nfo:
   = @entry.nfo

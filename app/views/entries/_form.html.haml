@@ -18,7 +18,7 @@
   %p
     = f.label :quality
     %br
-    = f.collection_select :quality, Entry::QUALITIES, :to_s, :humanize
+    = f.collection_select :quality, Entry::QUALITIES, :to_s, :to_s
 
   - f.fields_for :links do |builder|
     = render 'link_fields', :f => builder
