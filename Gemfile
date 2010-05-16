@@ -9,6 +9,10 @@ gem 'sqlite3-ruby', :require => 'sqlite3'
 gem 'nifty-generators'
 gem 'haml'
 gem 'compass'
+#gem 'searchlogic'
+#gem 'authlogic'
+gem "will_paginate", :git => "http://github.com/mislav/will_paginate.git", :branch => "rails3"
+
 
 #gem 'ruby-debug19', :require => "ruby-debug"
 

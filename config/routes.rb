@@ -1,4 +1,6 @@
 Media::Application.routes.draw do |map|
+  resources :languages
+
 
   resources :requests
 

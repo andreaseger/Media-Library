@@ -1,6 +1,7 @@
 class EntriesController < ApplicationController
   def index
-    @entries = Entry.all
+    #@entries = Entry.all
+    @entries = Entry.search(params[:search], params[:page])
   end
 
   def show
@@ -27,6 +28,8 @@ class EntriesController < ApplicationController
 
   def update
     params[:entry][:genre_ids] ||= []
+    params[:entry][:language_ids] ||= []
+    params[:entry][:sub_language_ids] ||= []
     @entry = Entry.find(params[:id])
     if @entry.update_attributes(params[:entry])
       flash[:notice] = "Successfully updated entry."

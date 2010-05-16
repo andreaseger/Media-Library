@@ -1,18 +1,16 @@
-- title "Request"
-
-%p
-  %strong Title:
-  = @request.title
-%p
-  %strong Supplicant:
-  = @request.supplicant
-%p
-  %strong Year:
-  = @request.year
+%h1.title
+  =@request.title
+%div.year
+  = '('+@request.year.to_s+')'
+%p.supplicant
+  request by
+  =@request.supplicant
 %p
   %strong Language:
   = @request.language
-
+%p
+  %strong Comment:
+  = simple_format(@request.comment)
 %p
   = link_to "Edit", edit_request_path(@request)
   |

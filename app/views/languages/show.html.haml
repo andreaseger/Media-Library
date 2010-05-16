@@ -1,0 +1,15 @@
+- title "Language"
+
+%p
+  %strong Long:
+  = @language.long
+%p
+  %strong Short:
+  = @language.short
+
+%p
+  = link_to "Edit", edit_language_path(@language)
+  |
+  = link_to "Destroy", @language, :confirm => 'Are you sure?', :method => :delete
+  |
+  = link_to "View All", languages_path

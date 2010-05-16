@@ -20,6 +20,10 @@
     #container
       - flash.each do |name, msg|
         = content_tag :div, msg, :id => "flash_#{name}"
+      %div#user_nav
+        =link_to_unless_current 'Entries', entries_path
+        |
+        =link_to_unless_current 'Requests', requests_path
 
       - if show_title?
         %h1= yield(:title)

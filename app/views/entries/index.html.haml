@@ -1,20 +1,25 @@
 - title "Entries"
 
-%table
-  %tr
-    %th Title
-    %th Year
-    %th Media typ
-    %th Quality
+-form_tag entries_path, :method => 'get' do
+  -content_tag :label do
+    Search:
+    = text_field_tag :search, params[:search]
+
+<%= will_paginate @entries %>
+
+%div#entries
   - for entry in @entries
-    %tr
-      %td= entry.title
-      %td= entry.year
-      %td= entry.media_typ
-      %td= entry.quality
-      %td= link_to 'Show', entry
-      %td= link_to 'Edit', edit_entry_path(entry)
-      %td= link_to 'Destroy', entry, :confirm => 'Are you sure?', :method => :delete
+    %div#entry
+      -unless entry.image_url.blank?
+        =image_tag entry.image_url, :width => 50, :class => 'image'
+      %h2.title
+        = link_to entry.title, entry
+      %p
+        =entry.year
+        |
+        =entry.quality
+        |
+        =entry.media_typ
 
 %p= link_to "New Entry", new_entry_path
 

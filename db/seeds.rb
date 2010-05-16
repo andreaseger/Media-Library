@@ -26,3 +26,6 @@ Genre.create(:name => 'Thriller')
 Genre.create(:name => 'War')
 Genre.create(:name => 'Western')
 
+Language.create(:long => 'deutsch', :short => 'de')
+Language.create(:long => 'englisch', :short => 'en')
+

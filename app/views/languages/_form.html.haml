@@ -1,0 +1,12 @@
+- form_for @language do |f|
+  = f.error_messages
+  %p
+    = f.label :long
+    %br
+    = f.text_field :long
+  %p
+    = f.label :short
+    %br
+    = f.text_field :short
+  %p
+    = f.submit

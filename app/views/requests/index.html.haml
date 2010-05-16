@@ -1,19 +1,29 @@
 - title "Requests"
 
-%table
-  %tr
-    %th Title
-    %th Supplicant
-    %th Year
-    %th Language
+-form_tag requests_path, :method => 'get' do
+  -content_tag :label do
+    Search:
+    = text_field_tag :search, params[:search]
+
+<%= will_paginate @requests %>
+
+%div#requests
   - for request in @requests
-    %tr
-      %td= request.title
-      %td= request.supplicant
-      %td= request.year
-      %td= request.language
-      %td= link_to 'Show', request
-      %td= link_to 'Edit', edit_request_path(request)
-      %td= link_to 'Destroy', request, :confirm => 'Are you sure?', :method => :delete
+    %div#request
+      %h2.title
+        = link_to request.title, request
+      %p
+        =request.year
+        |
+        =request.language
+        |
+        =request.supplicant
+        ||
+        = link_to "Edit", edit_request_path(request)
+        |
+        = link_to "Destroy", request, :confirm => 'Are you sure?', :method => :delete
+        |
+        = link_to "Convert", convert_request_path(request)
 
 %p= link_to "New Request", new_request_path
+

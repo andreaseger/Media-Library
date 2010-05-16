@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100515221812) do
+ActiveRecord::Schema.define(:version => 20100516133321) do
 
   create_table "categorizations", :force => true do |t|
     t.integer  "entry_id"
@@ -27,12 +27,18 @@ ActiveRecord::Schema.define(:version => 20100515221812) do
     t.string   "supplicant"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "image_url"
   end
 
   create_table "genres", :force => true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "languages", :force => true do |t|
+    t.string "long"
+    t.string "short"
   end
 
   create_table "links", :force => true do |t|
@@ -49,6 +55,18 @@ ActiveRecord::Schema.define(:version => 20100515221812) do
     t.integer  "year"
     t.string   "language"
     t.text     "comment"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "speeches", :force => true do |t|
+    t.integer "entry_id"
+    t.integer "language_id"
+  end
+
+  create_table "subtitles", :force => true do |t|
+    t.integer  "entry_id"
+    t.integer  "language_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

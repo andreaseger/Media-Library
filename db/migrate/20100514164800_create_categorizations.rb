@@ -3,8 +3,6 @@ class CreateCategorizations < ActiveRecord::Migration
     create_table :categorizations do |t|
       t.integer :entry_id
       t.integer :genre_id
-
-      t.timestamps
     end
   end
 
@@ -12,3 +10,4 @@ class CreateCategorizations < ActiveRecord::Migration
     drop_table :categorizations
   end
 end
+
