@@ -1,4 +1,4 @@
-- form_for @entry do |f|
+- form_for @request do |f|
   = f.error_messages
   %p
     = f.label :title
@@ -12,7 +12,14 @@
     = f.label :year
     %br
     = f.text_field :year
-  = render 'shared/extra_fields', :f => f
+  %p
+    = f.label :language
+    %br
+    = f.text_field :language
+  %p
+    = f.label :comment
+    %br
+    = f.text_area :comment, :rows => 3, :cols => 80
   %p
     = f.submit
 

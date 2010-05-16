@@ -4,14 +4,12 @@
   %tr
     %th Title
     %th Year
-    %th Nfo
     %th Media typ
     %th Quality
   - for entry in @entries
     %tr
       %td= entry.title
       %td= entry.year
-      %td= entry.nfo
       %td= entry.media_typ
       %td= entry.quality
       %td= link_to 'Show', entry

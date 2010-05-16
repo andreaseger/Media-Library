@@ -1,0 +1,35 @@
+- title "Convert a Request"
+
+%strong
+  Request Informationen
+%p
+  %strong Language:
+  =@request.language
+%p
+  %strong Comment:
+  =@request.comment
+
+- form_for Entry.new, :url => {:action => 'save_as_entry'} do |f|
+  = f.error_messages
+  %p
+    = f.label :title
+    %br
+    = f.text_field :title, :value => @request.title
+  %p
+    = f.label :supplicant
+    %br
+    = f.text_field :supplicant, :value => @request.supplicant
+  %p
+    = f.label :year
+    %br
+    = f.text_field :year, :value => @request.year
+  =render '/shared/extra_fields', :f => f
+
+  %p
+    = f.submit 'Save as Entry'
+
+%p
+  = link_to "Back", request_path(@request)
+  |
+  = link_to "View All", requests_path
+

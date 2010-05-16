@@ -6,6 +6,7 @@ class CreateEntries < ActiveRecord::Migration
       t.text :nfo
       t.string :media_typ
       t.string :quality
+      t.string :supplicant
       t.timestamps
     end
   end

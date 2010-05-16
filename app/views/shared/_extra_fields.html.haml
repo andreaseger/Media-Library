@@ -1,0 +1,26 @@
+%p
+  = f.label :media_typ
+  %br
+  = f.collection_select :media_typ, Entry::MEDIATYPES, :to_s, :to_s
+%p
+  = f.label :quality
+  %br
+  = f.collection_select :quality, Entry::QUALITIES, :to_s, :to_s
+
+- f.fields_for :links do |builder|
+  = render '/shared/link_fields', :f => builder
+%p
+  = link_to_add_fields "Add Link", f, :links
+%p
+  = f.label :nfo
+  %br
+  = f.text_area :nfo, :rows => 5, :cols => 80
+%p
+  = f.label :genres
+  %br
+  %ul
+  -for genre in Genre.all
+    %li
+      = check_box_tag "entry[genre_ids][]", genre.id, @entry.blank? ? false : @entry.genres.include?(genre)
+      = genre.name
+

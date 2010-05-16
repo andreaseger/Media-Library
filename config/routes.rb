@@ -1,10 +1,16 @@
 Media::Application.routes.draw do |map|
+
+  resources :requests
+
   resources :genres
 
   resources :links
 
   resources :entries
 
+
+  match 'requests/:id/convert(.:format)' => 'requests#convert', :as => :convert_request
+  match 'requests/:id(.:format)' => 'requests#save_as_entry'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -62,3 +68,4 @@ Media::Application.routes.draw do |map|
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id(.:format)))'
 end
+

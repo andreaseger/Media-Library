@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100514164800) do
+ActiveRecord::Schema.define(:version => 20100515221812) do
 
   create_table "categorizations", :force => true do |t|
     t.integer  "entry_id"
@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(:version => 20100514164800) do
     t.text     "nfo"
     t.string   "media_typ"
     t.string   "quality"
-    t.string   "genre"
+    t.string   "supplicant"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -39,6 +39,16 @@ ActiveRecord::Schema.define(:version => 20100514164800) do
     t.integer  "entry_id"
     t.string   "name"
     t.string   "url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "requests", :force => true do |t|
+    t.string   "title"
+    t.string   "supplicant"
+    t.integer  "year"
+    t.string   "language"
+    t.text     "comment"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -2,7 +2,11 @@
 
 %p
   %strong Title:
-  = @entry.title
+  = google_for(@entry.title, @entry.year.to_s)
+-unless @entry.supplicant.blank?
+  %p
+    request by
+    =@entry.supplicant
 %p
   %strong Year:
   = @entry.year
@@ -28,9 +32,10 @@
       -for link in @entry.links
         %li
           =link_to link.name, link.url, {:rel => "external", :target => "_blank"}
+
 %p
-  %strong Nfo:
-  = @entry.nfo
+  #monospaced
+    =@entry.nfo
 %p
   = link_to "Edit", edit_entry_path(@entry)
   |

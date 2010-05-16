@@ -1,5 +1,5 @@
 class Entry < ActiveRecord::Base
-  attr_accessible :title, :year, :nfo, :media_typ, :quality, :links, :links_attributes, :genre_ids, :genres
+  attr_accessible :title, :year, :nfo, :media_typ, :quality, :links, :links_attributes, :genre_ids, :genres, :supplicant
   has_many :links, :dependent => :destroy
   has_many :categorizations,:dependent => :destroy
   has_many :genres, :through => :categorizations

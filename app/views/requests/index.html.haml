@@ -1,0 +1,19 @@
+- title "Requests"
+
+%table
+  %tr
+    %th Title
+    %th Supplicant
+    %th Year
+    %th Language
+  - for request in @requests
+    %tr
+      %td= request.title
+      %td= request.supplicant
+      %td= request.year
+      %td= request.language
+      %td= link_to 'Show', request
+      %td= link_to 'Edit', edit_request_path(request)
+      %td= link_to 'Destroy', request, :confirm => 'Are you sure?', :method => :delete
+
+%p= link_to "New Request", new_request_path
