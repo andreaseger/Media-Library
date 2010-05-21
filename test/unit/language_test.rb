@@ -5,3 +5,4 @@ class LanguageTest < ActiveSupport::TestCase
     assert Language.new.valid?
   end
 end
+

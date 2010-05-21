@@ -9,28 +9,20 @@ gem 'sqlite3-ruby', :require => 'sqlite3'
 gem 'nifty-generators'
 gem 'haml'
 gem 'compass'
+gem "will_paginate", :git => "http://github.com/mislav/will_paginate.git", :branch => "rails3"
+
+
 #gem 'searchlogic'
 #gem 'authlogic'
-gem "will_paginate", :git => "http://github.com/mislav/will_paginate.git", :branch => "rails3"
 
 
 #gem 'ruby-debug19', :require => "ruby-debug"
 
-# Use unicorn as the web server
-#gem 'unicorn'
-
-# Deploy with Capistrano
-# gem 'capistrano'
-
-# Bundle the extra gems:
-# gem 'bj'
-# gem 'nokogiri', '1.4.1'
-# gem 'sqlite3-ruby', :require => 'sqlite3'
-# gem 'aws-s3', :require => 'aws/s3'
-
 # Bundle gems for certain environments:
 # gem 'rspec', :group => :test
-# group :test do
-#   gem 'webrat'
-# end
+group :test do
+  #gem "rspec", ">= 2.0.0.beta.8"
+  #gem "rspec-rails", ">= 2.0.0.beta.8"
+  #gem "factory_girl",:git => 'http://github.com/akitaonrails/factory_girl.git', :branch => 'rails3.beta3'
+end
 

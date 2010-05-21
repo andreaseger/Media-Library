@@ -1,53 +1,54 @@
-%h1.title
-  = google_for(@entry.title, @entry.year.to_s)
-%div.media_typ
-  -if @entry.media_typ
-    Movie
-  -else
-    TV Show
-%div.year
-  = '('+@entry.year.to_s+')'
+-cache @entry do
+  %h1.title
+    = google_for(@entry.title, @entry.year.to_s)
+  %div.media_typ
+    -if @entry.media_typ
+      Movie
+    -else
+      TV Show
+  %div.year
+    = '('+@entry.year.to_s+')'
 
--unless @entry.supplicant.blank?
-  %p.supplicant
-    request by
-    =@entry.supplicant
+  -unless @entry.supplicant.blank?
+    %p.supplicant
+      request by
+      =@entry.supplicant
 
--unless @entry.image_url.blank?
-  =image_tag @entry.image_url, :width => '150', :class => 'image'
-
-
-%p.genre
-  %strong Genre:
-  %ul
-    -for genre in @entry.genres
-      %li
-        =genre.name.humanize
+  -unless @entry.image_url.blank?
+    =image_tag @entry.image_url, :width => '150', :class => 'image'
 
 
-
-%p.quality
-  %strong Quality:
-  = @entry.quality
-
--if not @entry.links.empty?
-  %p.links
-    %strong Links:
+  %p.genre
+    %strong Genre:
     %ul
-      -for link in @entry.links
+      -for genre in @entry.genres
         %li
-          =link_to link.name, link.url, {:rel => "external", :target => "_blank"}
-
--unless @entry.nfo.blank?
-  %p.nfo
-    #monospaced
-      =@entry.nfo
+          =genre.name.humanize
 
 
-%p.controls
-  = link_to "Edit", edit_entry_path(@entry)
-  |
-  = link_to "Destroy", @entry, :confirm => 'Are you sure?', :method => :delete
-  |
-  = link_to "View All", entries_path
+
+  %p.quality
+    %strong Quality:
+    = @entry.quality
+
+  -if not @entry.links.empty?
+    %p.links
+      %strong Links:
+      %ul
+        -for link in @entry.links
+          %li
+            =link_to link.name, link.url, {:rel => "external", :target => "_blank"}
+
+  -unless @entry.nfo.blank?
+    %p.nfo
+      #monospaced
+        =@entry.nfo
+
+
+  %p.controls
+    = link_to "Edit", edit_entry_path(@entry)
+    |
+    = link_to "Destroy", @entry, :confirm => 'Are you sure?', :method => :delete
+    |
+    = link_to "View All", entries_path
 

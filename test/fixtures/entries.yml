@@ -1,17 +1,12 @@
-one:
-  title: MyString
-  year: 1
-  imdb: MyString
-  nfo: MyText
-  media_typ: false
-  quality: 1
-  genre_id: 1
+hase:
+  title: hase
+  year: 2010
+  media_typ: Movie
+  quality: 720p
 
-two:
-  title: MyString
-  year: 1
-  imdb: MyString
-  nfo: MyText
-  media_typ: false
-  quality: 1
-  genre_id: 1
+pferd:
+  title: pferd
+  year: 2003
+  media_typ: Movie
+  quality: 1080p
+

@@ -1,22 +1,23 @@
-%h1.title
-  =@request.title
-%div.year
-  = '('+@request.year.to_s+')'
-%p.supplicant
-  request by
-  =@request.supplicant
-%p
-  %strong Language:
-  = @request.language
-%p
-  %strong Comment:
-  = simple_format(@request.comment)
-%p
-  = link_to "Edit", edit_request_path(@request)
-  |
-  = link_to "Destroy", @request, :confirm => 'Are you sure?', :method => :delete
-  |
-  = link_to "View All", requests_path
-  |
-  = link_to "Convert", convert_request_path(@request)
+-cache @request do
+  %h1.title
+    =@request.title
+  %div.year
+    = '('+@request.year.to_s+')'
+  %p.supplicant
+    request by
+    =@request.supplicant
+  %p
+    %strong Language:
+    = @request.language
+  %p
+    %strong Comment:
+    = simple_format(@request.comment)
+  %p
+    = link_to "Edit", edit_request_path(@request)
+    |
+    = link_to "Destroy", @request, :confirm => 'Are you sure?', :method => :delete
+    |
+    = link_to "View All", requests_path
+    |
+    = link_to "Convert", convert_request_path(@request)
 

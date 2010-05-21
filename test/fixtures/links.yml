@@ -1,9 +1,15 @@
-one:
-  entry_id: 1
-  name: MyString
-  url: MyString
+google:
+  name: google
+  url: http://www.google.com
+  entry: hase
+engadget:
+  name: engadget
+  url: http://www.engadget.com
+  entry: hase
+railscasts:
+  name: Railscasts
+  url: www.railscasts.com
+asciicasts:
+  name: asciicasts
+  url: www.asciicasts
 
-two:
-  entry_id: 1
-  name: MyString
-  url: MyString
