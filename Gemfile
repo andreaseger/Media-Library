@@ -14,7 +14,7 @@ gem "will_paginate", :git => "http://github.com/mislav/will_paginate.git", :bran
 
 #gem 'searchlogic'
 #gem 'authlogic'
-#gem 'pg'
+gem 'pg'
 
 #gem 'ruby-debug19', :require => "ruby-debug"
 
