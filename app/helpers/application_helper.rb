@@ -14,5 +14,9 @@ module ApplicationHelper
   def google_for(target, year={})
     link_to target, 'http://www.google.de/search?q=' + target + ' ' + year, {:rel => "external", :target => "_blank"}
   end
+
+  def snippet(thought, count)
+    thought.gsub(/^(.{#{count}}[\w.]*)(.*)/m) {$2.empty? ? $1 : $1 + '...'}
+  end
 end
 

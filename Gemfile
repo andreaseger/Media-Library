@@ -10,7 +10,7 @@ gem 'nifty-generators'
 gem 'haml'
 gem 'compass'
 gem "will_paginate", :git => "http://github.com/mislav/will_paginate.git", :branch => "rails3"
-
+#gem "will_paginate", :git => "http://github.com/seivan/will_paginate.git", :branch => "rails3"
 
 #gem 'searchlogic'
 #gem 'authlogic'
@@ -20,9 +20,7 @@ gem "will_paginate", :git => "http://github.com/mislav/will_paginate.git", :bran
 
 # Bundle gems for certain environments:
 # gem 'rspec', :group => :test
-group :test do
-  #gem "rspec", ">= 2.0.0.beta.8"
-  #gem "rspec-rails", ">= 2.0.0.beta.8"
-  #gem "factory_girl",:git => 'http://github.com/akitaonrails/factory_girl.git', :branch => 'rails3.beta3'
-end
+#group :test do
+  #gem "factory_girl"
+#end
 

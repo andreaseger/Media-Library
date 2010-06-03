@@ -1,13 +1,19 @@
 - form_for @entry do |f|
   = f.error_messages
-  %p
+  %div
     = f.label :title
     %br
     = f.text_field :title
-  %p
+    %br
+    .forminfo
+      Titel des Film, der Serie oder Doku
+  %div
     = f.label :year
     %br
     = f.text_field :year
+    %br
+    .forminfo
+      Kinostart des Filmes bzw. Jahr des Serienstarts
   = render 'shared/extra_fields', :f => f
   %p
     = f.submit

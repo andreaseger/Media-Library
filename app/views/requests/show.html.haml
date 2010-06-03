@@ -1,23 +1,21 @@
--cache @request do
+-#cache @request do
+#shows
   %h1.title
     =@request.title
-  %div.year
-    = '('+@request.year.to_s+')'
-  %p.supplicant
-    request by
-    =@request.supplicant
-  %p
-    %strong Language:
+  %ul.info
+    %li= @request.year
+    %li
+      request by
+      =@request.supplicant
+  %div
+    %strong Sprache:
     = @request.language
-  %p
-    %strong Comment:
+  %strong Comment:
+  %div.indent
     = simple_format(@request.comment)
-  %p
-    = link_to "Edit", edit_request_path(@request)
-    |
-    = link_to "Destroy", @request, :confirm => 'Are you sure?', :method => :delete
-    |
-    = link_to "View All", requests_path
-    |
-    = link_to "Convert", convert_request_path(@request)
+  %ul.controls
+    %li= link_to "Edit", edit_request_path(@request)
+    %li= link_to "Destroy", @request, :confirm => 'Are you sure?', :method => :delete
+    %li= link_to "View All", requests_path
+    %li= link_to "Convert", convert_request_path(@request)
 

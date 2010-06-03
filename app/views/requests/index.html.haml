@@ -5,25 +5,26 @@
     Search:
     = text_field_tag :search, params[:search]
 
-<%= will_paginate @requests %>
+= will_paginate @requests
 
 %div#requests
   - for request in @requests
     %div#request
       %h2.title
         = link_to request.title, request
-      %p
-        =request.year
-        |
-        =request.language
-        |
-        =request.supplicant
-        ||
-        = link_to "Edit", edit_request_path(request)
-        |
-        = link_to "Destroy", request, :confirm => 'Are you sure?', :method => :delete
-        |
-        = link_to "Convert", convert_request_path(request)
+      %ul.controls
+        %li=link_to "Edit", edit_request_path(request)
+        %li= link_to "Destroy", request, :confirm => 'Are you sure?', :method => :delete
+        %li= link_to "Convert", convert_request_path(request)
+      %ul.info
+        %li=request.year
+        %li=request.language
+        %li
+          requested by
+          =request.supplicant
+      -unless request.comment.blank?
+        %p.info=snippet(request.comment,300)
+
 
 %p= link_to "New Request", new_request_path
 

@@ -1,6 +1,6 @@
 class RequestsController < ApplicationController
   def index
-    @requests = Request.all
+    @requests = Request.all.paginate(:per_page => 15, :page => params[:page])
   end
 
   def show

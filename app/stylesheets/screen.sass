@@ -1,0 +1,172 @@
+// This import applies a global reset to any page that imports this stylesheet.
+@import "blueprint/reset"
+// To configure blueprint, edit the partials/base.sass file.
+@import partials/base.scss
+//@import partials/flash_error.sass
+// Import all the default blueprint modules so that we can access their mixins.
+@import blueprint
+// Import the non-default scaffolding module.
+@import "blueprint/scaffolding"
+@import compass/utilities
+
+// To generate css equivalent to the blueprint css but with your configuration applied, uncomment:
+// +blueprint
+
+//Recommended Blueprint configuration with scoping and semantic layout:
++blueprint-typography
++blueprint-scaffolding
++blueprint-utilities
++blueprint-debug
++blueprint-interaction
+
+body
+  :background-color $almost_black
+  #container
+    +container
+    :padding 20px 40px
+    :margin 0 auto
+    :margin-top 20px
+    :background-color $white
+    :border solid 1px black
+
+    .controls
+      +horizontal-list
+
+    #header, #footer
+      +column(24)
+    #content
+      +column(20, true)
+      .hlisten
+        ul
+          +horizontal-list
+          :padding-left 0px
+          :margin-left 15px
+      .info
+        +horizontal-list
+        :font
+          :size 10px
+          :color $steel
+        :margin-bottom 10px
+      .indent
+        :padding-left 0px
+        :margin-left 15px
+
+      //forms
+      .selects
+        +no-bullets
+      .forminfo
+        :font
+          :size 10px
+          :color $light_grey
+        :margin-left 10px
+      #new_entry
+        div
+          :margin-bottom 10px
+          label
+            :font-weight bold
+      #new_request
+        label
+          :font-weight bold
+      //show seiten
+      #shows
+        .title
+          :margin-bottom 0px
+          :padding-bottom 1px
+        .links
+          ul
+            +no-bullets
+            :padding-left 0px
+            :margin-left 15px
+          a:link
+            :color $maroon
+          a:visited
+            :color $forest_green
+        .monospaced
+          :background-color #000
+          :width 55em
+          :font
+            :family Courier New, monospace
+            :size 0.75em
+          :color #eee
+          :white-space pre-wrap
+
+
+      //index seiten
+      #entries
+        #entry
+          :padding-top 10px
+          :height 180px
+          .image
+            +column(3)
+            :width (($blueprint-grid-width+$blueprint-grid-margin)*3)-5
+            :height auto
+          .title
+            +column(17,true)
+            +float-right
+          .info
+            +column(17,true)
+            +float-right
+            :font-size 14px
+      #requests
+        .title
+          :margin-bottom 0px
+          :padding-bottom 1px
+        .controls
+          :margin-bottom 5px
+          :margin-left 5px
+          a:link
+            :color $green
+          a:visited
+            :color $forest_green
+        .info
+          +column(20)
+          :margin-left 20px
+
+
+    // FlashMessages
+    #flash_notice,
+    #flash_error,
+    #flash_alert
+      :padding 5px 8px
+      :margin 10px 0
+
+    #flash_notice
+      :background-color #CFC
+      :border solid 1px #6C6
+
+    #flash_error,
+    #flash_alert
+      :background-color #FCC
+      :border solid 1px #C66
+
+    .fieldWithErrors
+      :display inline
+
+    .error_messages
+      :width 400px
+      :border 2px solid #CF0000
+      :padding 0
+      :padding-bottom 12px
+      :margin-bottom 20px
+      :background-color #f0f0f0
+      :font
+        :size 12px
+      h2
+        :text-align left
+        :padding 5px 5px 5px 15px
+        :margin 0
+        :font
+          :weight bold
+          :size 12px
+        :background-color #c00
+        :color #fff
+      p
+        :margin 8px 10px
+      ul
+        :margin 0
+
+    //User Navigation
+    #user_nav
+      :float right
+      :font-size 12px
+

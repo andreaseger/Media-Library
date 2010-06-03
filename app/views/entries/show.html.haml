@@ -1,38 +1,53 @@
--cache @entry do
+-#cache @entry do
+#shows
   %h1.title
     = google_for(@entry.title, @entry.year.to_s)
-  %div.media_typ
-    -if @entry.media_typ
-      Movie
-    -else
-      TV Show
-  %div.year
-    = '('+@entry.year.to_s+')'
-
-  -unless @entry.supplicant.blank?
-    %p.supplicant
-      request by
-      =@entry.supplicant
+  %ul.info
+    %li
+      -if @entry.media_typ
+        Movie
+      -else
+        TV Show
+    %li
+      = @entry.year
+    %li
+      -unless @entry.supplicant.blank?
+        request by
+        =@entry.supplicant
 
   -unless @entry.image_url.blank?
     =image_tag @entry.image_url, :width => '150', :class => 'image'
 
 
-  %p.genre
-    %strong Genre:
-    %ul
-      -for genre in @entry.genres
-        %li
-          =genre.name.humanize
+  -unless @entry.genres.blank?
+    %div.hlisten
+      %strong Genre:
+      %ul
+        -for genre in @entry.genres
+          %li
+            =genre.name.humanize
+  -unless @entry.languages.blank?
+    %div.hlisten
+      %strong Sprache:
+      %ul
+        -for language in @entry.languages
+          %li
+            =language.long
+  -unless @entry.sub_languages.blank?
+    %div.hlisten
+      %strong Untertitelsprache:
+      %ul
+        -for language in @entry.sub_languages
+          %li
+            =language.long
 
+  -unless @entry.quality.blank?
+    %div.quality
+      %strong Quality:
+      = @entry.quality
 
-
-  %p.quality
-    %strong Quality:
-    = @entry.quality
-
-  -if not @entry.links.empty?
-    %p.links
+  -unless @entry.links.blank?
+    %div.links
       %strong Links:
       %ul
         -for link in @entry.links
@@ -40,15 +55,12 @@
             =link_to link.name, link.url, {:rel => "external", :target => "_blank"}
 
   -unless @entry.nfo.blank?
-    %p.nfo
-      #monospaced
-        =@entry.nfo
+    %div.monospaced
+      =@entry.nfo
 
 
-  %p.controls
-    = link_to "Edit", edit_entry_path(@entry)
-    |
-    = link_to "Destroy", @entry, :confirm => 'Are you sure?', :method => :delete
-    |
-    = link_to "View All", entries_path
+  %ul.controls
+    %li= link_to "Edit", edit_entry_path(@entry)
+    %li= link_to "Destroy", @entry, :confirm => 'Are you sure?', :method => :delete
+    %li= link_to "View All", entries_path
 

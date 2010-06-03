@@ -5,21 +5,21 @@
     Search:
     = text_field_tag :search, params[:search]
 
-<%= will_paginate @entries %>
+= will_paginate @entries
 
 %div#entries
   - for entry in @entries
     %div#entry
       -unless entry.image_url.blank?
-        =image_tag entry.image_url, :width => 50, :class => 'image'
+        =image_tag entry.image_url, :class => 'image'
+      -else
+        =image_tag "http://dummyimage.com/110x155/d8dcd6/8c000f&text=X", :class => 'image'
       %h2.title
         = link_to entry.title, entry
-      %p
-        =entry.year
-        |
-        =entry.quality
-        |
-        =entry.media_typ
+      %ul.info
+        %li=entry.year
+        %li=entry.quality
+        %li=entry.media_typ
 
 %p= link_to "New Entry", new_entry_path
 

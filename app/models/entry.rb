@@ -25,8 +25,7 @@ class Entry < ActiveRecord::Base
             :numericality => { :only_integer => true },
             :length => { :is => 4 }
   validates :image_url,
-            :url_format => true,
-            :image => true
+            :url_format => true
   QUALITIES=%w[720p 1080p DVD lowRes]
   MEDIATYPES=%w[Movie TV-Show Doku]
 
